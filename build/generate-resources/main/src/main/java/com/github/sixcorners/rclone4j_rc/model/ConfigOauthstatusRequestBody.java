@@ -16,7 +16,7 @@ import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.validation.constraints.*;
 import java.util.Objects;
 
-public class CoreGcRequestBody {
+public class ConfigOauthstatusRequestBody {
 
   /** Assign the request to a custom stats group. */
   @JsonbProperty("_group")
@@ -40,7 +40,7 @@ public class CoreGcRequestBody {
     this.$group = $group;
   }
 
-  public CoreGcRequestBody $group(String $group) {
+  public ConfigOauthstatusRequestBody $group(String $group) {
     this.$group = $group;
     return this;
   }
@@ -59,7 +59,7 @@ public class CoreGcRequestBody {
     this.async = async;
   }
 
-  public CoreGcRequestBody async(Boolean async) {
+  public ConfigOauthstatusRequestBody async(Boolean async) {
     this.async = async;
     return this;
   }
@@ -72,9 +72,9 @@ public class CoreGcRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CoreGcRequestBody coreGcRequest = (CoreGcRequestBody) o;
-    return Objects.equals(this.$group, coreGcRequest.$group)
-        && Objects.equals(this.async, coreGcRequest.async);
+    ConfigOauthstatusRequestBody configOauthstatusRequest = (ConfigOauthstatusRequestBody) o;
+    return Objects.equals(this.$group, configOauthstatusRequest.$group)
+        && Objects.equals(this.async, configOauthstatusRequest.async);
   }
 
   @Override
@@ -86,7 +86,7 @@ public class CoreGcRequestBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CoreGcRequestBody {\n");
+    sb.append("class ConfigOauthstatusRequestBody {\n");
 
     sb.append("    $group: ").append(toIndentedString($group)).append("\n");
     sb.append("    async: ").append(toIndentedString(async)).append("\n");

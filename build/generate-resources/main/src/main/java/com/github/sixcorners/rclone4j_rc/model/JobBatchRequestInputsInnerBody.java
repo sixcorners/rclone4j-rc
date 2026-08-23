@@ -18,23 +18,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class VfsRefreshRequestBody extends HashMap<String, Object> {
+public class JobBatchRequestInputsInnerBody extends HashMap<String, Object> {
 
-  /** Optional VFS identifier whose directory cache should be refreshed. */
-  @JsonbProperty("fs")
-  protected String fs;
+  /** rc/path */
+  @JsonbProperty("_path")
+  protected String path;
 
-  /** Set to true to refresh entire directory trees. */
-  @JsonbProperty("recursive")
-  protected Boolean recursive;
-
-  /** Assign the request to a custom stats group. */
+  /** Stats group this input accumulates under. */
   @JsonbProperty("_group")
   protected String $group;
-
-  /** Run the command asynchronously. Returns a job id immediately. */
-  @JsonbProperty("_async")
-  protected Boolean async;
 
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
@@ -51,7 +43,7 @@ public class VfsRefreshRequestBody extends HashMap<String, Object> {
    * @return self reference
    */
   @com.fasterxml.jackson.annotation.JsonAnySetter
-  public VfsRefreshRequestBody putAdditionalProperty(String key, Object value) {
+  public JobBatchRequestInputsInnerBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -83,45 +75,27 @@ public class VfsRefreshRequestBody extends HashMap<String, Object> {
   }
 
   /**
-   * Optional VFS identifier whose directory cache should be refreshed.
+   * rc/path
    *
-   * @return fs
+   * @return path
    */
-  public String getFs() {
-    return fs;
+  @NotNull
+  public String getPath() {
+    return path;
   }
 
-  /** Set fs */
-  public void setFs(String fs) {
-    this.fs = fs;
+  /** Set path */
+  public void setPath(String path) {
+    this.path = path;
   }
 
-  public VfsRefreshRequestBody fs(String fs) {
-    this.fs = fs;
+  public JobBatchRequestInputsInnerBody path(String path) {
+    this.path = path;
     return this;
   }
 
   /**
-   * Set to true to refresh entire directory trees.
-   *
-   * @return recursive
-   */
-  public Boolean getRecursive() {
-    return recursive;
-  }
-
-  /** Set recursive */
-  public void setRecursive(Boolean recursive) {
-    this.recursive = recursive;
-  }
-
-  public VfsRefreshRequestBody recursive(Boolean recursive) {
-    this.recursive = recursive;
-    return this;
-  }
-
-  /**
-   * Assign the request to a custom stats group.
+   * Stats group this input accumulates under.
    *
    * @return $group
    */
@@ -134,27 +108,8 @@ public class VfsRefreshRequestBody extends HashMap<String, Object> {
     this.$group = $group;
   }
 
-  public VfsRefreshRequestBody $group(String $group) {
+  public JobBatchRequestInputsInnerBody $group(String $group) {
     this.$group = $group;
-    return this;
-  }
-
-  /**
-   * Run the command asynchronously. Returns a job id immediately.
-   *
-   * @return async
-   */
-  public Boolean getAsync() {
-    return async;
-  }
-
-  /** Set async */
-  public void setAsync(Boolean async) {
-    this.async = async;
-  }
-
-  public VfsRefreshRequestBody async(Boolean async) {
-    this.async = async;
     return this;
   }
 
@@ -166,30 +121,27 @@ public class VfsRefreshRequestBody extends HashMap<String, Object> {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VfsRefreshRequestBody vfsRefreshRequest = (VfsRefreshRequestBody) o;
-    return Objects.equals(this.fs, vfsRefreshRequest.fs)
-        && Objects.equals(this.recursive, vfsRefreshRequest.recursive)
-        && Objects.equals(this.$group, vfsRefreshRequest.$group)
-        && Objects.equals(this.async, vfsRefreshRequest.async)
-        && Objects.equals(this.additionalProperties, vfsRefreshRequest.additionalProperties)
+    JobBatchRequestInputsInnerBody jobBatchRequestInputsInner = (JobBatchRequestInputsInnerBody) o;
+    return Objects.equals(this.path, jobBatchRequestInputsInner.path)
+        && Objects.equals(this.$group, jobBatchRequestInputsInner.$group)
+        && Objects.equals(
+            this.additionalProperties, jobBatchRequestInputsInner.additionalProperties)
         && super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fs, recursive, $group, async, super.hashCode(), additionalProperties);
+    return Objects.hash(path, $group, super.hashCode(), additionalProperties);
   }
 
   /** Create a string representation of this pojo. */
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VfsRefreshRequestBody {\n");
+    sb.append("class JobBatchRequestInputsInnerBody {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    fs: ").append(toIndentedString(fs)).append("\n");
-    sb.append("    recursive: ").append(toIndentedString(recursive)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    $group: ").append(toIndentedString($group)).append("\n");
-    sb.append("    async: ").append(toIndentedString(async)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
